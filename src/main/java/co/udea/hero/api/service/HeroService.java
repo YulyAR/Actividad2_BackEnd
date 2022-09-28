@@ -39,4 +39,25 @@ public class HeroService {
         return heroesList;
     }
 
+    public List<Hero> searchHeroes(String name){
+        List<Hero> heroesList = heroRepository.findByNameLike("%"+name+"%");
+        return heroesList;
+    }
+
+    public void updateHero(Hero hero){
+        heroRepository.save(hero);
+    }
+
+    public void createHero(Hero hero){
+        heroRepository.save(hero);
+    }
+
+    public void deleteHero(Hero hero){
+        heroRepository.delete(hero);
+    }
+    
+    public void deleteHero(Integer id){
+        heroRepository.deleteById(id);
+    }
+
 }
