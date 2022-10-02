@@ -11,5 +11,3 @@ spring:
     active: dev
   application:
     name: tour-api
-  messages:
-    basename: bundles/apiLanguageBundle

@@ -1,6 +1,5 @@
 package co.udea.hero.api.service;
 
-import co.udea.hero.api.exception.BusinessException;
 import co.udea.hero.api.model.Hero;
 import co.udea.hero.api.repository.HeroRepository;
 import org.slf4j.Logger;
@@ -28,7 +27,7 @@ public class HeroService {
         Optional<Hero> optionalHero = heroRepository.findById(id);
         if(!optionalHero.isPresent()){
             log.info("No se encuentra un heroe con ID:"+id);
-            throw new BusinessException("exception.data_not_found.hero");
+            throw new RuntimeException("exception.data_not_found.hero");
         }
         return optionalHero.get();
     }
@@ -55,9 +54,6 @@ public class HeroService {
     public void deleteHero(Hero hero){
         heroRepository.delete(hero);
     }
-    
-    public void deleteHero(Integer id){
-        heroRepository.deleteById(id);
-    }
+
 
 }
